@@ -1,12 +1,13 @@
 from os import system
+lista_trabajador = []
 def menu_principal():
     opciones = {
-        '1': ('Opción 1', accion1),
-        '2': ('Opción 2', accion2),
-        '3': ('Opción 3', accion3),
-        '4': ('Salir', salir)
+        '1': ('Registrar trabajador', reg_trabajador),
+        '2': ('Listar todos los trabajadores', lis_trabajador),
+        '3': ('Imprimir planilla de sueldos', imp_trabajador),
+        '4': ('Salir del Programa', salir)
     }
-
+#la opcion como input y el 4 para dar la orden de termino del bucle
     generar_menu(opciones, '4')
 
 def generar_menu(opciones, opcion_salida):
@@ -32,15 +33,34 @@ def ejecutar_opcion(opcion, opciones):
     opciones[opcion][1]()
 
 
-def accion1():
-    print('Has elegido la opción 1')
+def reg_trabajador():
+    system("cls")
+    nombres = input("Ingrese  nombre  y Apellido del trabajador ")
+    cargo   = input("Ingrese el cargo del trabajador ")
+    sueldo_bruto = int(input("Ingrese el sueldo bruto del Trabajador "))
+    desc_salud =  int(round(sueldo_bruto *  7/100,0))
+    desc_afp =  int(round(sueldo_bruto*12/100,0))
+    liquido = sueldo_bruto - desc_salud - desc_afp
+    lista_trabajador.append({
+                    "nombres": nombres,
+                    "cargo": cargo,
+                    "sueldo_bruto": sueldo_bruto,
+                    "desc_salud": desc_salud,
+                    "desc_afp": desc_afp,
+                    "liquido": liquido,
+                })
+    print(lista_trabajador)
+    input()
+    return
 
 
-def accion2():
-    print('Has elegido la opción 2')
+def lis_trabajador():
+    system("cls")
+    print(f"Nombres\t Cargo\t Sueldo_Bruto\t Desc_salud\t Desc_afp\t Liquido\t")
+    for trabajador in lista_trabajador:
+        print(f"{trabajador}Nombres, {trabajador}Cargo, {trabajador}Sueldo_Bruto, {trabajador}Desc_salud,{trabajador}")
 
-
-def accion3():
+def imp_trabajador():
     print('Has elegido la opción 3')
 
 
