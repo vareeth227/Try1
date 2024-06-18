@@ -58,7 +58,13 @@ def lis_trabajador():
     system("cls")
     print(f"Nombres\t Cargo\t Sueldo_Bruto\t Desc_salud\t Desc_afp\t Liquido\t")
     for trabajador in lista_trabajador:
-        print(f"{trabajador}Nombres, {trabajador}Cargo, {trabajador}Sueldo_Bruto, {trabajador}Desc_salud,{trabajador}")
+        print(f"{trabajador}Nombres\t {trabajador}Cargo\t {trabajador}Sueldo_Bruto\t {trabajador}Desc_salud\t {trabajador}Desc_afp\t {trabajador}Liquido\t ")
+    input()
+    return
+
+
+
+
 
 def imp_trabajador():
     print('Has elegido la opción 3')
